@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Interativo de Acessibilidade Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1 class="page-title">📱 Painel Interativo de Acessibilidade Digital (45+ e Idosos)</h1>
+
+        <!-- PAINEL DE CONTROLE E NAVEGAÇÃO RÁPIDA -->
+        <section class="accessibility-panel" aria-label="Painel de Ajustes de Acessibilidade">
+            <h2>🛠️ Ajustes Rápidos & Navegação</h2>
+            
+            <div class="panel-buttons">
+                <button class="btn" onclick="adjustFontSize(2)" title="Aumentar tamanho do texto">Aumentar Fonte (+)</button>
+                <button class="btn" onclick="adjustFontSize(-2)" title="Diminuir tamanho do texto">Diminuir Fonte (-)</button>
+                <button class="btn" onclick="toggleContrast()" title="Alternar modo de alto contraste">Modo Alto Contraste</button>
+                <button class="btn" onclick="toggleBlueFilter()" title="Alternar filtro para conforto visual">Filtro de Luz Azul</button>
+                <button class="btn" onclick="toggleDyslexicFont()" title="Fonte para legibilidade e dislexia">Fonte Dislexia</button>
+                <button class="btn" onclick="toggleSimplified()" title="Ocultar elementos secundários">Modo Simplificado</button>
+                <button class="btn" onclick="toggleHoverSpeech()" id="btn-hover-speech">🔊 Leitura por Hover: OFF</button>
+                <button class="btn btn-reset" onclick="resetAccessibility()">Restaurar Padrão</button>
+            </div>
+
+            <hr class="panel-divider">
+
+            <div class="nav-shortcuts">
+                <span>📍 Ir para:</span>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-status')">📊 Progresso</button>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-modulos')">👓 Módulos</button>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-tabela')">👵 Adaptações</button>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-professor')">🎙️ Voz & Ditado</button>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-checklist')">✅ Checklist</button>
+                <button class="btn btn-nav" onclick="scrollToSection('sec-suporte')">💬 Suporte</button>
+            </div>
+        </section>
+
+        <!-- DASHBOARD DE PROGRESSO (VAIS ATÉ 100%) -->
+        <section id="sec-status" class="section">
+            <h2>📊 Status da Adaptação do Dispositivo</h2>
+            <div class="card progress-card">
+                <div class="progress-info">
+                    <span>Progresso da Configuração:</span>
+                    <strong id="progress-text">0% Concluído</strong>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. MÓDULOS DE ADAPTAÇÃO -->
+        <section id="sec-modulos" class="section">
+            <h2>1. Módulos do Aplicativo</h2>
+            <div class="grid">
+                <article class="card readable-content">
+                    <h3>👓 Visão e Leitura Confortável</h3>
+                    <p>Adaptação para vista cansada (presbiopia) e baixa visão. Recursos de ampliação dinâmica, ajuste de contraste e leitura sem brilho excessivo.</p>
+                </article>
+
+                <article class="card readable-content">
+                    <h3>🖐️ Precisão Motora Facilitada</h3>
+                    <p>Interface adaptada para tremores leves ou perda de sensibilidade. Botões ampliados, respostas táteis (vibração) e remoção de gestos complexos.</p>
+                </article>
+
+                <article class="card readable-content">
+                    <h3>🔑 Segurança e Autonomia Digital</h3>
+                    <p>Autenticação simples via biometria (digital ou facial), reduzindo a necessidade de memorizar senhas extensas e facilitando a navegação.</p>
+                </article>
+
+                <article class="card readable-content extra-info">
+                    <h3>🧠 Clareza Cognitiva e Proteção</h3>
+                    <p>Prevenção ativa contra golpes virtuais, alertas automáticos para links suspeitos, bloqueador de pop-ups e visual livre de distrações.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 2. QUADRO DE ADAPTAÇÕES POR FAIXA ETÁRIA -->
+        <section id="sec-tabela" class="section">
+            <h2>2. Adaptações Pedagógicas por Faixa Etária</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Público-Alvo</th>
+                            <th>Desafios Principais</th>
+                            <th>Solução Recomendada no App</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Adultos (45 a 59 anos)</strong></td>
+                            <td>Presbiopia (vista cansada), cansaço visual ao fim do dia e textos pequenos em notificações.</td>
+                            <td>Ampliação dinâmica de fonte, modo leitura sem brilho excessivo e ativação do filtro de luz azul.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Idosos (60+ anos)</strong></td>
+                            <td>Botões muito pequenos, dificuldade com senhas complexas e receio de golpes virtuais.</td>
+                            <td>Botões em tamanho gigante, confirmação por som/vibração, biometria e bloqueador de mensagens suspeitas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. FERRAMENTAS DO PROFESSOR (VOZ E DITADO) -->
+        <section id="sec-professor" class="section">
+            <h2>3. Ferramentas Integradas do Professor</h2>
+            <div class="grid">
+                <article class="card readable-content">
+                    <h3>📄 Conversor de Documentos Acessíveis</h3>
+                    <p>Transforma automaticamente materiais didáticos e PDFs em versões com fontes grandes (mínimo 18pt), alto contraste e maior espaçamento entrelinhas.</p>
+                </article>
+
+                <article class="card readable-content">
+                    <h3>🎙️ Ditado e Leitura por Voz</h3>
+                    <p>Sintetizador que converte textos em áudio claro e módulo de ditado para conversação direta no sistema.</p>
+                    
+                    <div class="voice-controls">
+                        <button class="btn btn-action" onclick="speakText('Bem-vindo ao módulo de acessibilidade digital para turmas maduras.')">🔊 Ouvir Demonstração</button>
+                        <button class="btn" id="btn-dictate" onclick="toggleDictation()">🎤 Falar / Ditar</button>
+                    </div>
+                    <p id="dictation-output" class="dictation-box">O seu texto ditado aparecerá aqui...</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. CHECKLIST INTERATIVO (COMPLETAR TODOS CHEGA A 100%) -->
+        <section id="sec-checklist" class="section">
+            <h2>4. Checklist Prático de Acessibilidade Digital</h2>
+            <div class="card checklist-card">
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1" onchange="updateChecklist()">
+                    <label for="check1">Tamanho da fonte ajustado para o nível grande ou extra grande.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2" onchange="updateChecklist()">
+                    <label for="check2">Modo de alto contraste ativado (fundo claro/escuro de alta legibilidade).</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3" onchange="updateChecklist()">
+                    <label for="check3">Login configurado por biometria (impressão digital ou reconhecimento facial).</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4" onchange="updateChecklist()">
+                    <label for="check4">Botões e ícones da tela inicial ampliados.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check5" onchange="updateChecklist()">
+                    <label for="check5">Instruções escritas em linguagem simples, sem jargões difíceis.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check6" onchange="updateChecklist()">
+                    <label for="check6">Bloqueador de anúncios e proteção contra links suspeitos ativada.</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SUPORTE -->
+        <section id="sec-suporte" class="section">
+            <h2>5. Dúvidas ou Suporte </h2>
+            <div class="card">
+                <form id="feedback-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="student-name">Dúvida:</label>
+                        <input type="text" id="student-name" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="student-message">Suporte:</label>
+                        <textarea id="student-message" rows="4" required class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-action">Enviar Mensagem</button>
+                </form>
+                <p id="form-status" class="status-msg"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
